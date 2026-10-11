@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f2f3ec">
+    <title>Chrono - Stopwatch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <a class="brand" href="#main" aria-label="Chrono stopwatch home">
+                <span class="brand-mark" aria-hidden="true"><span></span></span>
+                <span>CHRONO<span class="brand-period">.</span></span>
+            </a>
+            <span class="topbar-note">TIME, ON YOUR TERMS</span>
+        </header>
+
+        <main id="main" class="workspace">
+            <section class="stopwatch" aria-labelledby="page-title">
+                <div class="section-kicker"><span class="live-indicator" id="liveIndicator"></span><span id="statusText">READY WHEN YOU ARE</span></div>
+                <h1 id="page-title">Stopwatch</h1>
+
+                <div class="timer-face" role="timer" aria-label="Elapsed time">
+                    <div class="timer-readout" aria-hidden="true">
+                        <div class="time-unit"><span class="digits" id="hours">00</span><span class="unit-label">HRS</span></div>
+                        <span class="separator">:</span>
+                        <div class="time-unit"><span class="digits" id="minutes">00</span><span class="unit-label">MIN</span></div>
+                        <span class="separator">:</span>
+                        <div class="time-unit"><span class="digits" id="seconds">00</span><span class="unit-label">SEC</span></div>
+                        <span class="separator decimal">.</span>
+                        <div class="time-unit milliseconds"><span class="digits" id="milliseconds">000</span><span class="unit-label">MS</span></div>
+                    </div>
+                    <span class="timer-rule" aria-hidden="true"></span>
+                </div>
+
+                <div class="controls" aria-label="Stopwatch controls">
+                    <button class="button button-primary" id="startButton" type="button">
+                        <span class="button-symbol play-symbol" aria-hidden="true"></span>
+                        <span>Start</span>
+                    </button>
+                    <button class="button button-secondary" id="pauseButton" type="button" disabled>
+                        <span class="button-symbol pause-symbol" aria-hidden="true"></span>
+                        <span>Pause</span>
+                    </button>
+                    <button class="button button-quiet" id="lapButton" type="button" disabled>
+                        <span class="button-symbol lap-symbol" aria-hidden="true"></span>
+                        <span>Lap</span>
+                    </button>
+                    <button class="button button-quiet reset-button" id="resetButton" type="button" disabled>
+                        <span class="button-symbol reset-symbol" aria-hidden="true"></span>
+                        <span>Reset</span>
+                    </button>
+                </div>
+
+                <p class="timing-note">Precision timing, right in your browser.</p>
+            </section>
+
+            <section class="laps-panel" aria-labelledby="laps-title">
+                <div class="laps-heading">
+                    <div>
+                        <p class="section-kicker">YOUR SESSION</p>
+                        <h2 id="laps-title">Laps <span class="lap-count" id="lapCount">00</span></h2>
+                    </div>
+                    <span class="laps-columns" aria-hidden="true"><span>LAP TIME</span><span>TOTAL</span></span>
+                </div>
+                <ol class="lap-list" id="lapList" aria-label="Recorded lap times">
+                    <li class="empty-state" id="emptyState"><span class="empty-mark" aria-hidden="true">—</span><span>Your laps will appear here</span></li>
+                </ol>
+                <p class="laps-footnote" id="lapsFootnote">No laps recorded</p>
+            </section>
+        </main>
+
+        <footer class="page-footer"><span>CHRONO / 01</span><span>KEEP YOUR OWN PACE</span></footer>
+    </div>
+</body>
+</html>
